@@ -1,0 +1,46 @@
+
+body {
+    background-color: rgba(112, 146, 190, 0.7);
+}  
+
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+
+  .titlecenter{
+    text-align: center;
+    margin: auto;
+    width: 70%;
+    border: 1px;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .center {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    border: 1px solid white;
+    border-style: outset;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+  }
+
+
+  .topright {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    font-size: 10px;
+  }
+
+  img{
+    max-width:300px;
+  }
+
+  input[type=file]
+  {
+  padding:10px;
+}

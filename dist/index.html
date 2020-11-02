@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">  
+    <head>
+        <title>Absentee Ballot Online Request Form</title>
+        
+        <script type='text/javascript'>
+            function preview_image(event) 
+            {
+                var reader = new FileReader();
+                reader.onload = function()
+                {
+                var output = document.getElementById('output_image');
+                output.src = reader.result;
+                }
+            reader.readAsDataURL(event.target.files[0]);
+}
+            </script>
+
+        <link rel='stylesheet' type='text/css' href='index.css'>
+    </head>
+    <body class=titlecenter>
+        <h1> Absentee Ballot Request Form</h1>
+        <p class=topright> pronto traducción al español | 
+            tagalog translation malapit | Bản dịch tiếng việt sớm | 即将中文翻译 </p>
+        <p> Please enter your information below to request your absentee ballot. If you enter your mobile number, we will send you a text confirmation, if you upload your image you will get further confirmation.</p>
+        <p class="successMsg" role="alert" hidden>Messages sent...</p>
+        <p class="errorMsg" role="alert" hidden>Something went wrong...</p>
+        
+        <!--- Google Translate Integration
+        <div id="google_translate_element"></div>  
+      
+        <script type="text/javascript">  
+            function googleTranslateElementInit() {  
+                new google.translate.TranslateElement( 
+                    {pageLanguage: 'en'},  
+                    'google_translate_element' 
+                );  
+            }  
+        </script>  
+          
+        <script type="text/javascript" src= 
+            "https://translate.google.com/translate_a/element.js? 
+            cb=googleTranslateElementInit"> 
+        </script>  
+        -->
+    
+
+    </body>
+
+ 
+
+    <form name ="contact" class="center" method="POST" data-netlify="true">
+
+        <label for="fname">First name (required):</label>
+        <label for="lname">Last name (required):</label><br>
+        <input type="text" id="fname" name="fname"  required >
+        <input type="text" id="lname" name="lname" required>
+
+        <br>
+        <br>
+
+        <label for="stradr1">Street Address 1 (required):</label>
+        <label for="stradr2">Street Address 2:</label><br>
+        <input type="text" id="stradr1" name="street address 1" required>
+        <input type="text" id="stradr2" name="street address 2" style="width:50px">
+
+        <br>
+        <br>
+
+        <label for="city">City (required):</label>
+        <label for="state">State (required):</label>
+        <label for="ZIP">ZIP Code (required):</label> <br>
+        <input type="text" id="city" name="city" required>
+        <select id="state" name="state" required><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+        <input type="text" id="ZIP" name ="ZIP" pattern="[0-9]{5}" title="Five digit zip code" required style="width:50px;">
+
+        <br>
+        <br>
+        
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" name="Email" style="width:150px;">
+        <label for="phone">11 Digit Cell Number (country code with area code):</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" style="width:100px;">
+
+        <br>
+        <br>
+
+        Select image to upload:
+        <input type="file" name ="fileToUpload" id="fileToUpload" accept="image/*" onchange="preview_image(event)">
+        <br>
+        <img id="output_image"/>
+    
+        <br>
+        <br>
+
+       
+
+        <button class="btn" type="submit">Send Confirmation</button>
+
+    </form>
+
+
+</html>
+
+

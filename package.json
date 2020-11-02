@@ -1,0 +1,27 @@
+{
+  "name": "CfA-AbsBallotPhone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "netlify-lambda build functions",
+    "serve": "netlify-lambda serve functions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PC-Driver/CfA-AbsBallotPhone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PC-Driver/CfA-AbsBallotPhone/issues"
+  },
+  "homepage": "https://github.com/PC-Driver/CfA-AbsBallotPhone#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "netlify-lambda": "^2.0.1",
+    "twilio": "^3.49.1"
+  }
+}

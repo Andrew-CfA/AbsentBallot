@@ -16,6 +16,10 @@
 }
             </script>
 
+        <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
         <link rel='stylesheet' type='text/css' href='index.css'>
     </head>
     <body class=titlecenter>
@@ -93,30 +97,21 @@
         <br>
         <br>
 
-       
+        <input type="text" id="url" placeholder="Image URL" />
+        <input type="button" id="go_button" value="Run" />
+        <!--<div id="ocr_results"> </div>-->
+        <div id="ocr_status"> </div>
+        <div>
+           <label>Filed1
+           <label>
+              <textarea id="text"></textarea>
+        </div>
 
         <button class="btn" type="submit">Send Confirmation</button>
 
     </form>
 
-    <div id="ocr" class="ocr">
-        <h1 class="h">OCR with Tesseract</h1>
-        
-        <form id="ocr__form" class="ocr__form">
-            <label for="ocr__input">Image: </label>
-            <input id="ocr__input" type="text" />
-            <button type="submit">Start</button>
-        </form>
-        
-        <img id="ocr__img" class="ocr__img" />
-        
-        <div id="ocr__result" class="ocr__result">
-            <h3 class="h">Result:</h3>
-            <div id="ocr__output" class="ocr__output">
-                Waiting to start.
-            </div>
-        </div>
-    </div>
+
 
 </html>
 

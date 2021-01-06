@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">  
     <head>
-        <title>Absentee Ballot Online Request Form</title>
+        <title>Backend Prototyping Playground</title>
         
         <script type='text/javascript'>
             function preview_image(event) 
@@ -13,7 +13,7 @@
                 output.src = reader.result;
                 }
             reader.readAsDataURL(event.target.files[0]);
-}
+            }
             </script>
 
         <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
@@ -22,32 +22,43 @@
 
         <link rel='stylesheet' type='text/css' href='index.css'>
     </head>
+
     <body class=titlecenter>
-        <h1> Absentee Ballot Request Form</h1>
+        <h1> Backend Prototyping Playground</h1>
         <p class=topright> pronto traducción al español | 
             tagalog translation malapit | Bản dịch tiếng việt sớm | 即将中文翻译 </p>
         <p> Please enter your information below to request your absentee ballot. If you enter your mobile number, we will send you a text confirmation, if you upload your image you will get further confirmation.</p>
         <p class="successMsg" role="alert" hidden>Messages sent...</p>
         <p class="errorMsg" role="alert" hidden>Something went wrong...</p>
-        
-        <!--- Google Translate Integration
-        <div id="google_translate_element"></div>  
-      
-        <script type="text/javascript">  
-            function googleTranslateElementInit() {  
-                new google.translate.TranslateElement( 
-                    {pageLanguage: 'en'},  
-                    'google_translate_element' 
-                );  
-            }  
-        </script>  
-          
-        <script type="text/javascript" src= 
-            "https://translate.google.com/translate_a/element.js? 
-            cb=googleTranslateElementInit"> 
-        </script>  
-        -->
-    
+
+
+        <input type="text" id="url" placeholder="Image URL" />
+        <input type="button" id="go_button" value="Run" />
+        <!--<div id="ocr_results"> </div>-->
+        <div id="ocr_status"> </div>
+        <div>
+           <label>Filed1
+           <label>
+              <textarea id="text"></textarea>
+        </div>
+
+        <script>
+function runOCR(url) {
+    Tesseract.recognize(url)
+        .then(function(result) {
+            document.getElementById("text").value = result.text;
+    }).progress(function(result) {
+        document.getElementById("ocr_status").innerText = result["status"] + " (" +
+            (result["progress"] * 100) + "%)";
+    });      
+}
+ 
+document.getElementById("go_button").addEventListener("click", function(e) {
+    var url = document.getElementById("url").value;
+    runOCR(url);
+});
+        </script>
+                
 
     </body>
 
@@ -97,17 +108,9 @@
         <br>
         <br>
 
-        <input type="text" id="url" placeholder="Image URL" />
-        <input type="button" id="go_button" value="Run" />
-        <!--<div id="ocr_results"> </div>-->
-        <div id="ocr_status"> </div>
-        <div>
-           <label>Filed1
-           <label>
-              <textarea id="text"></textarea>
-        </div>
-
         <button class="btn" type="submit">Send Confirmation</button>
+
+
 
     </form>
 

@@ -19,23 +19,6 @@ const defaultImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/
 // const defaultImage = 'https://i.imgur.com/fun6Hrl.png';
 
 
-function runOCR(url) {
-  Tesseract.recognize(url)
-      .then(function(result) {
-          document.getElementById("text").value = result.text;
-  }).progress(function(result) {
-      document.getElementById("ocr_status").innerText = result["status"] + " (" +
-          (result["progress"] * 100) + "%)";
-  });      
-}
-
-document.getElementById("go_button").addEventListener("click", function(e) {
-  var url = document.getElementById("url").value;
-  runOCR(url);
-});
-
-
-
 exports.handler = function(event, context, callback) {
 
     let payload = JSON.parse(event.body).payload;

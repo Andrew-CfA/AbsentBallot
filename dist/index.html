@@ -20,7 +20,7 @@
     </head>
     <body class=titlecenter>
         <h1> Absentee Ballot Request Form</h1>
-        <p class=topright> hi please work pronto traducción al español | 
+        <p class=topright> pronto traducción al español | 
             tagalog translation malapit | Bản dịch tiếng việt sớm | 即将中文翻译 </p>
         <p> Please enter your information below to request your absentee ballot. If you enter your mobile number, we will send you a text confirmation, if you upload your image you will get further confirmation.</p>
         <p class="successMsg" role="alert" hidden>Messages sent...</p>
@@ -99,6 +99,24 @@
 
     </form>
 
+    <div id="ocr" class="ocr">
+        <h1 class="h">OCR with Tesseract</h1>
+        
+        <form id="ocr__form" class="ocr__form">
+            <label for="ocr__input">Image: </label>
+            <input id="ocr__input" type="text" />
+            <button type="submit">Start</button>
+        </form>
+        
+        <img id="ocr__img" class="ocr__img" />
+        
+        <div id="ocr__result" class="ocr__result">
+            <h3 class="h">Result:</h3>
+            <div id="ocr__output" class="ocr__output">
+                Waiting to start.
+            </div>
+        </div>
+    </div>
 
 </html>
 

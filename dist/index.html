@@ -37,26 +37,27 @@
         <!--<div id="ocr_results"> </div>-->
         <div id="ocr_status"> </div>
         <div>
-           <label>Filed1
+           <label>Output of Image here:
+               <br>
            <label>
               <textarea id="text"></textarea>
         </div>
 
         <script>
-function runOCR(url) {
-    Tesseract.recognize(url)
-        .then(function(result) {
-            document.getElementById("text").value = result.text;
-    }).progress(function(result) {
-        document.getElementById("ocr_status").innerText = result["status"] + " (" +
-            (result["progress"] * 100) + "%)";
-    });      
-}
- 
-document.getElementById("go_button").addEventListener("click", function(e) {
-    var url = document.getElementById("url").value;
-    runOCR(url);
-});
+        function runOCR(url) {
+            Tesseract.recognize(url)
+                .then(function(result) {
+                    document.getElementById("text").value = result.text;
+            }).progress(function(result) {
+                document.getElementById("ocr_status").innerText = result["status"] + " (" +
+                    (result["progress"] * 100) + "%)";
+            });      
+        }
+        
+        document.getElementById("go_button").addEventListener("click", function(e) {
+            var url = document.getElementById("url").value;
+            runOCR(url);
+        });
         </script>
                 
 

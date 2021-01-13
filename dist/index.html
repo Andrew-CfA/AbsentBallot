@@ -3,6 +3,10 @@
     <head>
         <title>Backend Prototyping Playground</title>
         
+
+        <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
         <script type='text/javascript'>
             function preview_image(event) 
             {
@@ -12,12 +16,21 @@
                 var output = document.getElementById('output_image');
                 output.src = reader.result;
                 }
-            reader.readAsDataURL(event.target.files[0]);
+                
+
+                Tesseract.recognize(event.target.files[0]) //https://creativepro.com/wp-content/uploads/2015/12/PlaceholderFile.jpeg works
+                    .then(function(result) {
+                        document.getElementById("text").value = result.text;
+                }).progress(function(result) {
+                    document.getElementById("ocr_status").innerText = result["status"] + " (" +
+                        (result["progress"] * 100) + "%)";
+                })
+
+                reader.readAsDataURL(event.target.files[0]);
+
             }
             </script>
 
-        <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
         <link rel='stylesheet' type='text/css' href='index.css'>
@@ -32,33 +45,13 @@
         <p class="errorMsg" role="alert" hidden>Something went wrong...</p>
 
 
-        <input type="text" id="url" placeholder="Image URL" />
-        <input type="button" id="go_button" value="Run" />
-        <!--<div id="ocr_results"> </div>-->
-        <div id="ocr_status"> </div>
-        <div>
-           <label>Output of Image here:
-               <br>
-           <label>
-              <textarea id="text"></textarea>
-        </div>
 
-        <script>
-        function runOCR(url) {
-            Tesseract.recognize(url)
-                .then(function(result) {
-                    document.getElementById("text").value = result.text;
-            }).progress(function(result) {
-                document.getElementById("ocr_status").innerText = result["status"] + " (" +
-                    (result["progress"] * 100) + "%)";
-            });      
-        }
-        
-        document.getElementById("go_button").addEventListener("click", function(e) {
-            var url = document.getElementById("url").value;
-            runOCR(url);
-        });
-        </script>
+
+
+
+
+
+
                 
 
     </body>
@@ -110,6 +103,22 @@
         <br>
 
         <button class="btn" type="submit">Send Confirmation</button>
+
+
+        <br>
+        <br>
+
+        <!--<div id="ocr_results"> </div>-->
+        <div id="ocr_status"> </div>
+        <div>
+           <label>Output of Image here:
+               <br>
+           <label>
+              <textarea id="text"></textarea>
+        </div>
+
+        <br>
+        <br>
 
 
 

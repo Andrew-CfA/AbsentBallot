@@ -18,7 +18,7 @@
                 }
                 
 
-                Tesseract.recognize(event.target.files[0]) //https://creativepro.com/wp-content/uploads/2015/12/PlaceholderFile.jpeg works
+                Tesseract.recognize(event.target.files[0]) 
                     .then(function(result) {
                         document.getElementById("text").value = result.text;
                 }).progress(function(result) {
@@ -31,8 +31,6 @@
             }
             </script>
 
-
-
         <link rel='stylesheet' type='text/css' href='index.css'>
     </head>
 
@@ -44,15 +42,6 @@
         <p class="successMsg" role="alert" hidden>Messages sent...</p>
         <p class="errorMsg" role="alert" hidden>Something went wrong...</p>
 
-
-
-
-
-
-
-
-
-                
 
     </body>
 
